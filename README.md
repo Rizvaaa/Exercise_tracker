@@ -1,3 +1,4 @@
+<!-- <<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,23 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# Exercise_tracker
+to study the MERN concepts completely along with mongoDB atlas database.
+>>>>>>> 2c778e0539c83828f46fc796b281ae0c4b0f2fd4 -->
+# Exercise_tracker
+
+This project is built to study MERN concepts along with MongoDB Atlas database.
+
+---
+
+## Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+... (and keep the rest of the local content)
