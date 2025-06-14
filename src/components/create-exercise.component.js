@@ -1,6 +1,8 @@
 import React,{Component} from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import axios from 'axios';
 
 export default class CreateExercises extends Component {
     constructor(props) {
@@ -23,10 +25,15 @@ export default class CreateExercises extends Component {
     }
 
     componentDidMount() {
-        this.setState({
-            users:['test user'],
-            username: 'test user'
-        })
+        axios.get('http://localhost:5000/users')
+            .then(response=>{
+                if (response.data.length>0) {
+                    this.setState({
+                        users:response.data.map(user=>user.username),
+                        username:response.data[0].username
+                    })
+                }
+            })
     }
 
     onChangeUsername(e) {
@@ -62,7 +69,9 @@ export default class CreateExercises extends Component {
             duration: this.state.duration,
             date: this.state.date
         };
-        console.log(exercise)
+        console.log(exercise);
+        axios.post('http://localhost:5000/exercise/add', exercise)
+            .then(res=> console.log(res.data))
         window.location='/';
     }
 
@@ -73,7 +82,7 @@ export default class CreateExercises extends Component {
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                     <label>Username: </label>
-                    <select ref="userinput"
+                    <select 
                         required
                         className="form-control"
                         value={this.state.username}
@@ -86,7 +95,7 @@ export default class CreateExercises extends Component {
                                     </option>;
                             })
                         }
-                        </select>
+                    </select>
                 </div>
                 <div className="form-group">
                     <label>Description: </label>
@@ -117,7 +126,7 @@ export default class CreateExercises extends Component {
                 </div >
 
                 <div className="form-group">
-                        <input type="submit" value="Create exercise log" className="btn btn-primary"/>
+                        <input type="submit" value="Create exercise log" className="btn btn-primary" />
                 </div>
 
             </form>

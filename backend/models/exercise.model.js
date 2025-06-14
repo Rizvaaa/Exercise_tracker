@@ -4,7 +4,7 @@ const exerciseSchema= new Schema({
     username:{type:String, required:true},
     description:{type:String, required:true},
     duration:{type:Number, required:true},
-    date:{typr:Date,required:true},
+    date:{type:Date,required:true},
     },
     {
         timestamps:true,
@@ -13,4 +13,4 @@ const exerciseSchema= new Schema({
 
 const Exercise= mongoose.model('Exercise',exerciseSchema);
 
-model.exports= Exercise;
+module.exports= Exercise;
